@@ -15,7 +15,7 @@ type JokeRepository struct {
 	Url string
 }
 
-func NewJokeRepository(url string) *JokeRepository {
+func NewJokeRepository(url string) IRepository[models.Joke] {
 	return &JokeRepository{
 		Url: url,
 	}

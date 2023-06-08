@@ -1,7 +1,6 @@
 package handlers
 
 import (
-	"challenge/pkg/models"
 	"challenge/pkg/repository"
 	"context"
 	"fmt"
@@ -18,8 +17,7 @@ func GetJokes(c *fiber.Ctx) error {
 
 	url := os.Getenv("DATA_URL")
 
-	var repo repository.IRepository[models.Joke]
-	repo = repository.NewJokeRepository(url)
+	repo := repository.NewJokeRepository(url)
 
 	log.Println(fmt.Sprintf("Obteniendo bromas desde %s", url))
 

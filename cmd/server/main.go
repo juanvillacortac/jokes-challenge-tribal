@@ -11,12 +11,12 @@ import (
 )
 
 func main() {
-	err := godotenv.Load()
-	if err != nil {
-		log.Fatal("Error loading .env file")
-	}
+	godotenv.Load()
 
 	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+	}
 	addr := fmt.Sprintf(":%s", port)
 
 	log.Printf("Listening on %s", addr)
